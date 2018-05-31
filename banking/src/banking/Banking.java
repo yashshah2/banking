@@ -1,42 +1,13 @@
 package banking;
 import java.util.*;
-class operation
-{
-    Scanner inp=new Scanner(System.in);
-    String name;
-    int account_no;
-    int balance;
-    void create()
-    {
-        System.out.println("Enter the account no::");
-        account_no=inp.nextInt();
-        System.out.println("Enter the name of the account holder::");
-        name=inp.next();
-    }
-    void display()
-    {
-       System.out.println("Name::"+name+"\nAccount no::"+account_no);
-    }
-    void deposit()
-    {
-        int amt;
-        System.out.println("Enter the amount to deposit::");
-        amt=inp.nextInt();
-        balance=balance+amt;
-        System.out.println("balance="+balance);
-    }
-    void withdraw()
-    {
-        int amt;
-        System.out.println("Enter the amount to withdraw::");
-        amt=inp.nextInt();
-        if(balance>amt)
-            balance=balance-amt;
-        else
-            System.out.println("Insufficient balance::");
-        System.out.println("balanceance="+balance);
-    }
-}
+
+
+/**
+ * The case 4 deals with transfer of money from one account to another
+ * The case 5 deals with finding the total amount of money in the bank
+ * Case 6 find the richest person in the bank
+ * @author shahy
+ */
 public class Banking
 {
     public static void main(String[] args)
@@ -45,10 +16,10 @@ public class Banking
         int choice,i,accno,amt,sum=0,max,j,acc_withdraw,acc_deposit;
         int a[]=new int[10];
         boolean found4=false;
-        operation[] obj=new operation[4];
+        Operation[] obj=new Operation[4];
         for(i=0;i<obj.length;i++)
         {
-            obj[i]=new operation();
+            obj[i]=new Operation();
         }
         i=0;
         do
