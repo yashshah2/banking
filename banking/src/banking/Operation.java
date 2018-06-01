@@ -23,7 +23,7 @@ public class Operation
     int account_no;
     int balance;
     
-    public void create()
+    public void create(int accno,String name)
     {
         System.out.println("Enter the account no::");
         account_no=inp.nextInt();
@@ -36,24 +36,21 @@ public class Operation
        System.out.println("Name::"+name+"\nAccount no::"+account_no);
     }
    
-    public void deposit()
+    public int deposit(int accno,int amt,int balance)
     {
-        int amt;
-        System.out.println("Enter the amount to deposit::");
-        amt=inp.nextInt();
         balance=balance+amt;
-        System.out.println("balance="+balance);
+        //System.out.println("balance="+balance);
+        return balance;
     }
     
-    public void withdraw()
+    public int withdraw(int accno,int amt,int balance)
     {
-        int amt;
-        System.out.println("Enter the amount to withdraw::");
-        amt=inp.nextInt();
+        
+        
         if(balance>amt)
             balance=balance-amt;
         else
             System.out.println("Insufficient balance::");
-        System.out.println("balanceance="+balance);
+        return balance;
     }
 }

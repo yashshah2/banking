@@ -13,7 +13,8 @@ public class Banking
     public static void main(String[] args)
     {
         Scanner inp=new Scanner(System.in);
-        int choice,i,accno,amt,sum=0,max,j,acc_withdraw,acc_deposit;
+        int choice,i,accno,amt,sum=0,max,j,acc_withdraw,acc_deposit,account_no=0,balance=0;
+        String name="";
         int a[]=new int[10];
         boolean found4=false;
         Operation[] obj=new Operation[4];
@@ -28,8 +29,7 @@ public class Banking
             choice=inp.nextInt();
             switch(choice)
             {
-                case 1:
-                    obj[i].create();
+                case 1:obj[i].create(account_no,name);
                     for(j=0;j<i;j++)
                     {
                         if(obj[j].account_no==obj[i].account_no)
@@ -38,10 +38,13 @@ public class Banking
                     if(found4)
                     {
                         System.out.println("Account no already exist Please re-enter the account no::");
-                        obj[i].create();
+                        obj[i].create(account_no,name);
                     }
                     else
+                    {
+                        
                          obj[i].display();
+                    }
                     i++;
                     break;
                 case 2:System.out.println("Enter the account no::");
@@ -58,8 +61,11 @@ public class Banking
                         if(!found)
                             System.out.println("Account doesnot exist");
                         else
-                        {                            
-                            obj[i].deposit(); 
+                        {    
+                            
+                           System.out.println("Enter the amount to deposit::");
+                           amt=inp.nextInt();
+                            System.out.println("balance="+obj[i].deposit(accno,amt,balance));
                         }
                         break;
                 case 3:System.out.println("Enter the account no::");
@@ -75,7 +81,9 @@ public class Banking
                         }
                         if(found1)
                         {
-                            obj[i].withdraw();
+                            System.out.println("Enter the amount to withdraw::");
+                             amt=inp.nextInt();
+                            System.out.println("balance="+obj[i].withdraw(accno,amt,balance));
                         }
                         else
                             System.out.println("Account doesnot exist");
